@@ -182,7 +182,7 @@ def _form(
 
           <div class="note">
             This uses your locally saved browser sessions in <span class="mono">auth/</span>.
-            Check the README file here if you're stuck &lt;URL&gt;.
+            Check the README file here if you're stuck <a href="https://github.com/catwomaniya/event-radar/tree/main" target="_blank" rel="noreferrer">https://github.com/catwomaniya/event-radar/tree/main</a>.
           </div>
         </form>
       </div>
