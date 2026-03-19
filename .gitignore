@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+dist/
+*.egg-info/
+auth/*
+!auth/.gitkeep
+.env
+creds/*
+.DS_Store
