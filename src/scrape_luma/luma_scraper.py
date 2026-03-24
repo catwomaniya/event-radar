@@ -4,7 +4,7 @@ import re
 from playwright.sync_api import Page, sync_playwright
 from rich.console import Console
 
-from scrape_luma.config import AUTH_DIR, CHROME_PATH, LUMA_BROWSER_STATE_PATH, PAGE_LOAD_TIMEOUT_MS
+from scrape_luma.config import AUTH_DIR, LUMA_BROWSER_STATE_PATH, PAGE_LOAD_TIMEOUT_MS
 from scrape_luma.models import LumaGuest
 
 console = Console()
@@ -15,7 +15,7 @@ def save_login_session() -> None:
     AUTH_DIR.mkdir(parents=True, exist_ok=True)
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False, executable_path=CHROME_PATH)
+        browser = p.chromium.launch(headless=False)
         context = browser.new_context()
         page = context.new_page()
 
@@ -163,7 +163,7 @@ def scrape_event_guests(
             all_guests.append(guest)
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=headless, executable_path=CHROME_PATH)
+        browser = p.chromium.launch(headless=False)
         context_kwargs = {}
         if LUMA_BROWSER_STATE_PATH.exists():
             context_kwargs["storage_state"] = str(LUMA_BROWSER_STATE_PATH)

@@ -8,7 +8,6 @@ from rich.console import Console
 
 from scrape_luma.config import (
     AUTH_DIR,
-    CHROME_PATH,
     MAX_RATE_LIMIT_RETRIES,
     PAGE_LOAD_TIMEOUT_MS,
     RATE_LIMIT_BACKOFF,
@@ -37,8 +36,6 @@ def save_login_session() -> None:
         context = p.chromium.launch_persistent_context(
             profile_dir,
             headless=False,
-            executable_path=CHROME_PATH,
-            args=_ANTI_DETECT_ARGS,
         )
         page = context.pages[0] if context.pages else context.new_page()
 
@@ -83,9 +80,7 @@ def x_browser(
 
     with sync_playwright() as p:
         browser = p.chromium.launch(
-            headless=headless,
-            executable_path=CHROME_PATH,
-            args=_ANTI_DETECT_ARGS,
+            headless=False,
         )
         context = browser.new_context(
             storage_state=str(X_BROWSER_STATE_PATH),
