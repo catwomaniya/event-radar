@@ -44,6 +44,15 @@ Same flow — browser opens to `x.com/login`, you log in manually, session is sa
 uv run scrape-luma scrape "https://lu.ma/your-event-slug"
 ```
 
+OR
+
+use below to open a UI to make it easier to run this at http://127.0.0.1:8001/
+
+```bash
+uv run scrape-luma ui --host 127.0.0.1 --port 8000
+```
+
+
 This will:
 1. Open the Luma event page (using your saved Luma session)
 2. Extract the guest list (names, X handles)
